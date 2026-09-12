@@ -1,41 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
-func buildReport(users map[string][]string, requestedUsers []string) ([]string, []string) {
-	var findedUsers []string
-	var notFindedUsers []string
-	for _, user := range requestedUsers {
-		if _, ok := users[user]; ok {
-			findedUsers = append(findedUsers, user)
-		} else {
-			notFindedUsers = append(notFindedUsers, user)
-		}
-	}
-	return findedUsers, notFindedUsers
+func average(values []int) (float64, error) {
+    if len(values) == 0 {
+        return 0, errors.New("Ошибка: невозможно вычислить среднее для пустого списка")
+    }
+    sum := 0
+    for _, v := range values {
+        sum += v
+    }
+    return float64(sum) / float64(len(values)), nil
 }
 
 func main() {
-	users := map[string][]string{
-	"kirill": {"admin", "developer"},
-	"anna":   {"developer"},
-	"petr":   {"support", "moderator"},
-	"olga":   {"developer", "tester"},
-	}
-
-	requestedUsers := []string{
-		"kirill",
-		"olga",
-		"unknown",
-		"anna",
-	}
-
-	user, request := buildReport(users, requestedUsers)
-
-	fmt.Printf(
-		"Отчет:\n%v\n"+
-		"\n"+
-		"Пользователи не найдены:\n%v\n",
-		user[0], request,
-	)
+    durations := []int{
+	120, 95, 110, 140, 85,
+    }
+    avg, err := average(durations)
+    if err != nil {
+        fmt.Println(err)
+    } else {
+        fmt.Printf("Среднее время обработки: %.2f мс\n", avg)
+    }
 }

@@ -1,4 +1,4 @@
-package main
+package task01statuses
 
 import (
 	"fmt"
