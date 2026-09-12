@@ -2,10 +2,6 @@ package main
 
 import "fmt"
 
-<<<<<<< HEAD
-func main() {
-	fmt.Println("Task 4")
-=======
 func buildReport(users map[string][]string, requestedUsers []string) ([]string, []string) {
 	var report []string
 	var missingUsers []string
@@ -39,7 +35,7 @@ func main() {
 	requestedUsers := []string{
 		"kirill",
 		"olga",
-		"unknown",
+		"petr",
 		"anna",
 	}
 
@@ -52,5 +48,4 @@ func main() {
 	fmt.Println()
 	fmt.Println("Пользователи не найдены:")
 	fmt.Println(missingUsers)
->>>>>>> 97b9746 (Add the solution task 4)
 }
