@@ -9,7 +9,7 @@ func buildReport(users map[string][]string, requestedUsers []string) ([]string, 
 	for _, user := range requestedUsers {
 		if roles, ok := users[user]; ok {
 			line := user + ": "
-			
+
 			for i, role := range roles {
 				if i > 0 {
 					line += ", "
@@ -26,10 +26,10 @@ func buildReport(users map[string][]string, requestedUsers []string) ([]string, 
 
 func main() {
 	users := map[string][]string{
-	"kirill": {"admin", "developer"},
-	"anna":   {"developer"},
-	"petr":   {"support", "moderator"},
-	"olga":   {"developer", "tester"},
+		"kirill": {"admin", "developer"},
+		"anna":   {"developer"},
+		"petr":   {"support", "moderator"},
+		"olga":   {"developer", "tester"},
 	}
 
 	requestedUsers := []string{
